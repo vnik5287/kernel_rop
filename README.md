@@ -1,4 +1,4 @@
-# Linux Kernl ROP demo
+# Linux Kernel ROP demo
 
 This is a vulnerable Linux kernel driver used to demonstrate in-kernel
 privilege escalation ROP (Return Oriented Programming) chain in practice. The
@@ -13,3 +13,11 @@ the function address to be executed.
 * drv.c - vulnerable kernel driver
 * trigger.c - user-space application to trigger the OOB access via the provided
   ioctl
+
+The goal is to construct and execute a ROP chain that will satisfy the
+following requirements:
+
+* Execute a privilege escalation payload
+* Data residing in user space may be referenced (i.e., "fetching" data from
+  user space is allowed)
+* Instructions residing in user space may not be executed
